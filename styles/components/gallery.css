@@ -1,0 +1,26 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.gallery{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-container{
+  columns: 6 200px;
+}
+
+img{
+  width: 100%;
+  margin: 10px;
+  break-inside: avoid;
+  cursor: pointer;
+}
+
+.hide{
+    display: none;
+}

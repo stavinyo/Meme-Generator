@@ -1,0 +1,17 @@
+.editor{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.editor-btns{
+    margin-inline-start: 10px;
+}
+
+.hide{
+    display: none;
+}
+
+.draggable-region {
+  cursor: move;
+}

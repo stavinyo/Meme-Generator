@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/styles.css">
+        <title>Meme Generator</title>
+    </head>
+    <body onload="onInit()">
+        <header class="header-nav">
+            <h1>Meme Generator</h1>
+        </header>
+
+        <section class="gallery">
+            <h3>gallery section</h3>
+            <section class="gallery-container">
+            </section>
+        </section>
+
+        <section class="editor hide">
+            
+            <div class="editor-container">
+                <div class="canvas-container">
+                    <canvas width="400" height="400" onclick="onObjectSelection(event)"></canvas>
+                </div>
+            </div>
+
+            <div class="editor-btns">
+                <h3>editor section</h3>
+                
+                <input class="btn text-input" placeholder="Type here" size="30"/>
+                <button class="btn add-line-input" >+ Text</button>
+                <input type="color" class="btn input-fill-color" value="#ffffff" />
+                <button class="btn increase-input" onclick="onUpdateFontSize(1)">increase</button>
+                <button class="btn decrease-input" onclick="onUpdateFontSize(-1)">decrease</button>
+                <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
+            </div>
+            
+        </section>
+
+        <script src="js/services/utilService.js"></script>
+        <script src="js/services/memeService.js"></script>
+        <script src="js/galleryController.js"></script>
+        <script src="js/memeController.js"></script>
+    </body>
+</html>
