@@ -80,31 +80,31 @@ function updateFillColor(fillColor) {
 
 function updateFontSize(plusOrMinus) {
     const line = gMeme.lines[gCurrLineIdx]
-    line.size += plusOrMinus
+    line.size += plusOrMinus * 2
     updateLineMass(line)
 }
 
 function createLine(text = 'New Line', size = 20, color = 'white') {
-    const lastLine = gMeme.lines[gMeme.lines.length - 1]
+    // const lastLine = gMeme.lines[gMeme.lines.length - 1]
 
-    if (!lastLine || lastLine.txt.trim() !== '') {
-        const newLine = {
-            txt: text,
-            size: size,
-            color: color,
-            isGrab: false,
-            xPos: gElCanvas.width / 2,
-            yPos: calculateNewLineYPosition(),
-            width: 0,
-            height: 20,
-        }
-
-        updateLineMass(newLine)
-        gMeme.lines.push(newLine)
-        gCurrLineIdx++
-        console.log('gCurrLineIdx', gCurrLineIdx)
-        return gMeme.lines.length - 1
+    // if (!lastLine || lastLine.txt.trim() !== '') {
+    const newLine = {
+        txt: text,
+        size: size,
+        color: color,
+        isGrab: false,
+        xPos: gElCanvas.width / 2,
+        yPos: calculateNewLineYPosition(),
+        width: 0,
+        height: 20,
     }
+
+    updateLineMass(newLine)
+    gMeme.lines.push(newLine)
+    gCurrLineIdx++
+    console.log('gCurrLineIdx', gCurrLineIdx)
+    return gMeme.lines.length - 1
+    // }
 }
 
 function calculateNewLineYPosition() {
@@ -143,4 +143,10 @@ function getEvPos(ev) {
         }
     }
     return pos
+}
+
+function updateSelectedLineText(textContent) {
+    if (gDragLineIdx !== -1) {
+        gMeme.lines[gDragLineIdx].txt = textContent
+    }
 }

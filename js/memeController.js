@@ -72,10 +72,11 @@ function renderText(idx) {
     // drawRect(x, y)
 }
 
-
 function onUpdateText(ev) {
     const textContent = ev.target.value
+    console.log("ev", textContent)
     setUpdateText(textContent)
+    updateSelectedLineText(textContent)
     renderMeme()
 }
 
@@ -112,8 +113,7 @@ function onDown(ev) {
     gPrevPos = pos
 
     if (gDragLineIdx !== -1) {
-        let meme = getMeme()
-        // meme.lines[gDragLineIdx].isGrab = true
+        _updateInputBarContent(gDragLineIdx)
         renderMeme()
     }
     return
@@ -139,14 +139,28 @@ function onMove(ev) {
 
 function onUp() {
     if (gDragLineIdx !== -1) {
-        let meme = getMeme()
-        // meme.lines[gDragLineIdx].isGrab = false
-        console.log('meme', meme)
-        // console.log("meme.lines[gDragLineIdx].isGrab", meme.lines[gDragLineIdx].isGrab)
+        _onChooseLine()
         gDragLineIdx = -1
         renderMeme()
     }
     return
+}
+
+function _updateInputBarContent(lineIdx) {
+    const textContent = gMeme.lines[lineIdx].txt
+    const input = document.querySelector('.text-input')
+    input.value = textContent
+}
+
+function _onChooseLine() {
+    let meme = getMeme()
+    const currTextContent = meme.lines[gDragLineIdx].txt
+    const currFillColor = meme.lines[gDragLineIdx].color
+
+    gCurrLineIdx = gDragLineIdx
+
+    setUpdateText(currTextContent)
+    updateFillColor(currFillColor)
 }
 
 function isObjectClicked(clickedPos) {
