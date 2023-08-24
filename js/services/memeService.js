@@ -34,7 +34,7 @@ var gMeme = {
             size: 35,
             color: 'white',
             isGrab: false,
-
+            isSelected: false,
             xPos: 200,
             yPos: 200,
             width: 200,
@@ -93,6 +93,7 @@ function createLine(text = 'New Line', size = 20, color = 'white') {
         size: size,
         color: color,
         isGrab: false,
+        isSelected: true,
         xPos: gElCanvas.width / 2,
         yPos: calculateNewLineYPosition(),
         width: 0,
@@ -145,8 +146,24 @@ function getEvPos(ev) {
     return pos
 }
 
+
+//FIXME: TO check if this function is needed
 function updateSelectedLineText(textContent) {
     if (gDragLineIdx !== -1) {
         gMeme.lines[gDragLineIdx].txt = textContent
     }
+}
+
+function updateSelectedLine(plusOrMinus) {
+    const prevLineIdx = gCurrLineIdx
+
+    gCurrLineIdx += plusOrMinus
+    if (gCurrLineIdx < 0) {
+        gCurrLineIdx = gMeme.lines.length - 1
+    } else if (gCurrLineIdx >= gMeme.lines.length) {
+        gCurrLineIdx = 0
+    }
+
+    gMeme.lines[prevLineIdx].isSelected = false
+    gMeme.lines[gCurrLineIdx].isSelected = true
 }

@@ -1,0 +1,27 @@
+.header-nav{
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    margin-block: 20px;
+
+      /* move to helpers */
+    background-color: var(--clrNavBg);
+    color: var(--clrNavFont);
+    border-radius: 15px;
+}
+
+.header-nav h1{
+    margin-inline: 20px;
+    margin-block: 0;
+}
+
+.header-nav .nav-container{
+    margin-inline-start: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav .nav-container > *{
+    margin-inline: 20px;
+}

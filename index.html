@@ -9,6 +9,10 @@
     <body onload="onInit()">
         <header class="header-nav">
             <h1>Meme Generator</h1>
+            <div class="nav-container">
+                <button class="btn-nav gallery-btn">Gallery</button>
+                <button class="btn-nav about-btn">About</button>
+            </div>
         </header>
 
         <section class="gallery">
@@ -18,23 +22,26 @@
         </section>
 
         <section class="editor hide">
-            
-            <div class="editor-container">
-                <div class="canvas-container">
-                    <canvas width="400" height="400" onclick="onObjectSelection(event)"></canvas>
-                </div>
+        
+        <div class="editor-container">
+            <div class="canvas-container">
+                <canvas width="400" height="400" onclick="onObjectSelection(event)"></canvas>
             </div>
-
-            <div class="editor-btns">
-                <h3>editor section</h3>
+        </div>
                 
-                <input class="btn text-input" placeholder="Type here" size="30"/>
-                <button class="btn add-line-input" >+ Text</button>
-                <input type="color" class="btn input-fill-color" value="#ffffff" />
-                <button class="btn increase-input" onclick="onUpdateFontSize(1)">increase</button>
-                <button class="btn decrease-input" onclick="onUpdateFontSize(-1)">decrease</button>
-                <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
-            </div>
+        <div class="editor-btns">
+            <h3>editor section</h3>
+            
+            <input class="btn text-input" placeholder="Type here" size="30"/>
+            <button class="btn add-line-input" >+</button>
+            <input type="color" class="btn input-fill-color" value="#ffffff" />
+            <button class="btn increase-input" onclick="onUpdateFontSize(1)">🗚</button>
+            <button class="btn decrease-input" onclick="onUpdateFontSize(-1)">🗛</button>
+
+            <button class="btn next-line-input" onclick="onUpdateSelectedLine(1)">🡱</button>
+            <button class="btn prev-line-input" onclick="onUpdateSelectedLine(-1)">🡳</button>
+            <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
+        </div>
             
         </section>
 

@@ -69,6 +69,10 @@ function renderText(idx) {
     // FIXME: coor on the middle of the canvas
     gCtx.fillText(line.txt, line.xPos, line.yPos)
     gCtx.strokeText(line.txt, line.xPos, line.yPos)
+
+    if (line.isSelected) {
+        drawRect(line.xPos, line.width, line.yPos, line.size)
+    }
     // drawRect(x, y)
 }
 
@@ -76,7 +80,7 @@ function onUpdateText(ev) {
     const textContent = ev.target.value
     console.log("ev", textContent)
     setUpdateText(textContent)
-    updateSelectedLineText(textContent)
+    // updateSelectedLineText(textContent)
     renderMeme()
 }
 
@@ -98,6 +102,11 @@ function onUpdateFontSize(plusOrMinus) {
 
 function onAddLine() {
     gCurrLineIdx = createLine()
+
+    gMeme.lines.forEach((line, idx) => {
+        line.isSelected = idx === gCurrLineIdx
+    })
+
     resetInputTub()
     renderMeme()
 }
@@ -111,6 +120,11 @@ function onDown(ev) {
     const pos = getEvPos(ev)
     gDragLineIdx = isObjectClicked(pos)
     gPrevPos = pos
+
+    console.log("gDragLineIdx", gDragLineIdx)
+    gMeme.lines.forEach((line, idx) => {
+        line.isSelected = idx === gDragLineIdx
+    })
 
     if (gDragLineIdx !== -1) {
         _updateInputBarContent(gDragLineIdx)
@@ -152,6 +166,13 @@ function _updateInputBarContent(lineIdx) {
     input.value = textContent
 }
 
+function onUpdateSelectedLine(plusOrMinus) {
+    if (gMeme.lines.length === 0) return
+    updateSelectedLine(plusOrMinus)
+    _updateInputBarContent(gCurrLineIdx)
+    renderMeme()
+}
+
 function _onChooseLine() {
     let meme = getMeme()
     const currTextContent = meme.lines[gDragLineIdx].txt
@@ -184,14 +205,14 @@ function isObjectClicked(clickedPos) {
             return idx
         }
     }
-    return null;
+    return null
 }
 
-
-//FIXME:
-function drawRect(x, y) {
-    gCtx.strokeStyle = 'purple'
-    gCtx.rect(x, y, 100, 100)
+function drawRect(xPos, xWidth, yPos, yHeight) {
+    gCtx.beginPath()
+    gCtx.rect(xPos - xWidth / 2, yPos - yHeight / 2, xWidth, yHeight)
+    gCtx.strokeStyle = '#9F0D7F'
+    gCtx.lineWidth = 2
     gCtx.stroke()
 }
 
