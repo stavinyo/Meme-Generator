@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    font-family: bubble, tektur,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-family: playfair, serif;
+    line-height: 1.714285;
+}
+
+body {
+    font-size: 16px;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    cursor: pointer;
+}

@@ -4,11 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles/styles.css">
+        <script src="https://kit.fontawesome.com/8bb9a1a97e.js" crossorigin="anonymous"></script>
         <title>Meme Generator</title>
     </head>
-    <body onload="onInit()">
+
+    <body class="main-layout" onload="onInit()">
         <header class="header-nav">
-            <h1>Meme Generator</h1>
+            <h1 class="logo">Meme Generator</h1>
             <div class="nav-container">
                 <button class="btn-nav gallery-btn">Gallery</button>
                 <button class="btn-nav about-btn">About</button>
@@ -22,28 +24,49 @@
         </section>
 
         <section class="editor hide">
-        
-        <div class="editor-container">
-            <div class="canvas-container">
-                <canvas width="400" height="400" onclick="onObjectSelection(event)"></canvas>
+            <div class="editor-container">
+                <div class="canvas-container">
+                    <canvas width="400" height="400" onclick="onObjectSelection(event)"></canvas>
+                </div>
             </div>
-        </div>
-                
-        <div class="editor-btns">
-            <h3>editor section</h3>
-            
-            <input class="btn text-input" placeholder="Type here" size="30"/>
-            <button class="btn add-line-input" >+</button>
-            <input type="color" class="btn input-fill-color" value="#ffffff" />
-            <button class="btn increase-input" onclick="onUpdateFontSize(1)">🗚</button>
-            <button class="btn decrease-input" onclick="onUpdateFontSize(-1)">🗛</button>
+                    
+            <div class="editor-btns">
+                <div class="text-btn">
+                    <input class="btn text-input" placeholder="Type here" size="30" />
+                </div>
+ 
+                <div class="first-btns">
+                    <button class="btn next-line-input" onclick="onUpdateSelectedLine(1)">🡱</button>
+                    <button class="btn prev-line-input" onclick="onUpdateSelectedLine(-1)">🡳</button>
+                    <button class="btn add-line-input" >+</button>
+                </div>
+ 
+                <div class="second-btns">
+                    <button class="btn increase-input" onclick="onUpdateFontSize(1)">🗚</button>
+                    <button class="btn decrease-input" onclick="onUpdateFontSize(-1)">🗛</button>
+                    <input type="color" class="btn input-fill-color" value="#ffffff" />
+                </div>                
 
-            <button class="btn next-line-input" onclick="onUpdateSelectedLine(1)">🡱</button>
-            <button class="btn prev-line-input" onclick="onUpdateSelectedLine(-1)">🡳</button>
-            <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg">Download</a>
-        </div>
-            
+                <div class=".stickers-btns">
+
+                </div>
+
+                <div class="third-btns">
+                    <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg"><i class="fa-solid fa-download"></i></a>
+                    <a href="#" class="btn" onclick="onUploadCanvasToFacebook()">f</a>
+                </div>
+            </div>
         </section>
+
+        <footer class="main-footer">
+            <small>all rights reserved Stav Cohen 2023</small>
+            <ul class="social-links">
+                <li class="facebook"><a href="#">facebook</a></li>
+                <li class="twitter"><a href="#">twitter</a></li>
+                <li class="instagram"><a href="#">instagram</a></li>
+                <li class="linkedIn"><a href="#">linkedIn</a></li>
+            </ul>
+        </footer>
 
         <script src="js/services/utilService.js"></script>
         <script src="js/services/memeService.js"></script>

@@ -73,7 +73,6 @@ function renderText(idx) {
     if (line.isSelected) {
         drawRect(line.xPos, line.width, line.yPos, line.size)
     }
-    // drawRect(x, y)
 }
 
 function onUpdateText(ev) {
@@ -85,6 +84,8 @@ function onUpdateText(ev) {
 }
 
 function downloadMeme(elLink) {
+    turnOffRact()
+    renderMeme()
     const imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
@@ -119,6 +120,7 @@ function resetInputTub() {
 function onDown(ev) {
     const pos = getEvPos(ev)
     gDragLineIdx = isObjectClicked(pos)
+    console.log('gDragLineIdx', gDragLineIdx)
     gPrevPos = pos
 
     console.log("gDragLineIdx", gDragLineIdx)
@@ -128,10 +130,12 @@ function onDown(ev) {
 
     if (gDragLineIdx !== -1) {
         _updateInputBarContent(gDragLineIdx)
-        renderMeme()
+    } else {
+        turnOffRact()
     }
-    return
+    renderMeme()
 }
+
 
 function onMove(ev) {
     if (gDragLineIdx !== -1) {
@@ -205,7 +209,7 @@ function isObjectClicked(clickedPos) {
             return idx
         }
     }
-    return null
+    return -1
 }
 
 function drawRect(xPos, xWidth, yPos, yHeight) {
@@ -229,6 +233,42 @@ function updateLineMass(line) {
     const metrics = ctx.measureText(line.txt)
     line.width = metrics.width
     line.height = line.size
+}
+
+function onUploadCanvasToFacebook() {
+    turnOffRact()
+    renderMeme()
+    const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
+
+    function onSuccess(uploadedImgUrl) {
+        const url = encodeURIComponent(uploadedImgUrl)
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
+    }
+    doUploadImg(imgDataUrl, onSuccess)
+}
+
+function doUploadImg(imgDataUrl, onSuccess) {
+    const formData = new FormData()
+    formData.append('img', imgDataUrl)
+
+    const XHR = new XMLHttpRequest()
+    XHR.onreadystatechange = () => {
+        if (XHR.readyState !== XMLHttpRequest.DONE) return
+        if (XHR.status !== 200) return console.error('Error uploading image')
+        const { responseText: url } = XHR
+        onSuccess(url)
+    }
+    XHR.onerror = (req, ev) => {
+        console.error('Error connecting to server with request:', req, '\nGot response data:', ev)
+    }
+    XHR.open('POST', '//ca-upload.com/here/upload.php')
+    XHR.send(formData)
+}
+
+function turnOffRact() {
+    gMeme.lines.forEach((line) => {
+        line.isSelected = false
+    })
 }
 
 

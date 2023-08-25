@@ -1,7 +1,11 @@
 :root{
 
     /* colors */
-    --clrNavBg: #ADC4CE;
-    --clrNavFont: #F1F0E8;
+    --clrMainBg: #FFA559;
+    --clrNavFont: #32312f;
+    --clrNavFontHover: #F1F0E8;
+
     --clrBodyBg: #F1F0E8;
+
+    --layout-padding: 35px;
 }

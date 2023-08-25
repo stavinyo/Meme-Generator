@@ -37,7 +37,7 @@ var gMeme = {
             isSelected: false,
             xPos: 200,
             yPos: 200,
-            width: 200,
+            width: 330,
             height: 40,
         }
     ]
