@@ -12,6 +12,13 @@ function onInit() {
     onInitGallery()
     eventListenersMemes()
     renderMeme()
+    // resizeCanvas()
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
 }
 
 function eventListenersMemes() {
@@ -46,9 +53,10 @@ function renderImgAndText(img) {
     elImg.src = `${img.url}`
 
     elImg.onload = () => {
-        gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+        gElCanvas.width = elImg.width
+        gElCanvas.height = elImg.height
+        resizeCanvas()
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
         const meme = getMeme()
         meme.lines.forEach((_, idx) => {
             renderText(idx)
@@ -56,7 +64,6 @@ function renderImgAndText(img) {
     }
 }
 
-// FIXME: coor diffult on the middle of the canvas
 function renderText(idx) {
     const meme = getMeme()
     const line = meme.lines[idx]
@@ -97,7 +104,7 @@ function onUpdateText(ev) {
 }
 
 function downloadMeme(elLink) {
-    turnOffRact()
+    turnOffRect()
     renderMeme()
     const imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
@@ -149,7 +156,7 @@ function onDown(ev) {
     if (gDragLineIdx !== -1) {
         _updateInputBarContent(gDragLineIdx)
     } else {
-        turnOffRact()
+        turnOffRect()
     }
     renderMeme()
 }
@@ -254,7 +261,7 @@ function updateLineMass(line) {
 }
 
 function onUploadCanvasToFacebook() {
-    turnOffRact()
+    turnOffRect()
     renderMeme()
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
 
@@ -283,7 +290,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.send(formData)
 }
 
-function turnOffRact() {
+function turnOffRect() {
     gMeme.lines.forEach((line) => {
         line.isSelected = false
     })

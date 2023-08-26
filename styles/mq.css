@@ -1,5 +1,13 @@
+@media (max-width: 790px) {
+    .editor .canvas-container canvas {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
 /* Tablet*/
-@media (min-width: 790px) {
+@media (min-width: 791px) {
 
     .editor{
         flex-direction: row;
