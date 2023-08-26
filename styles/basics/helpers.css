@@ -1,0 +1,6 @@
+.frame{
+    border: 1px solid rgba(56, 54, 54, 0.466) ;
+    box-shadow: 0 0 3em 0.1em rgba(56, 54, 54, 0.466);
+    border-radius: 3px;
+
+}

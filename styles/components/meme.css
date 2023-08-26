@@ -1,25 +1,20 @@
 .editor{
-
     margin-block: 30px;
-    /* display: flex;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor .canvas-container{
+    display: flex;
     justify-content: center;
-    justify-items: center; */
-    display: grid;
-    grid-template-columns: 1fr 20px 1fr;
-    
-    border: 1px solid rgba(56, 54, 54, 0.466) ;
-    box-shadow: 0 0 3em 0.1em rgba(56, 54, 54, 0.466);
-    border-radius: 3px;
-    padding: 30px;
+    align-items: center;
+    margin: 10px;
 }
 
-.editor-container{
-    grid-area: 1 / 1 / 2 / 2;
-    margin-inline-start: auto;
-}
-
-.editor-btns{
-    grid-area: 1 / 3 / 2 / 4;
+.editor .editor-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .editor-btns >*{
@@ -34,7 +29,8 @@
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s;
-    height: 35px;
+    height: 50px;
+    font-size: 1.3rem;
 }
 
 .editor-btns .btn:not(:last-child){
@@ -42,22 +38,22 @@
 }
 
 .editor-btns .btn:not(.text-input){
-    width: 35px;
+    width: 50px;
+}
+
+.editor-btns .text-input{
+    width: 300px;
 }
 .editor-btns .btn:hover{
     background-color: aliceblue;
 }
 .editor-btns .second-btns{
-border: 1px solid rgba(56, 54, 54, 0.466);
-border-radius: 3px;
-width: min-content;
-padding: 10px;
+    border: 1px solid rgba(56, 54, 54, 0.466);
+    border-radius: 3px;
+    width: min-content;
+    padding: 10px;
 }
 
 .hide{
     display: none;
-}
-
-.draggable-region {
-  cursor: move;
 }

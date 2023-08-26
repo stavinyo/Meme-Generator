@@ -1,9 +1,10 @@
-.gallery h3{
-  margin: 0;  
+
+.gallery{
+  margin-block: 30px;
 }
 
 .gallery-container{  
-    margin-block: 30px;
+  margin-block: 30px;
   display: grid;
   grid-auto-flow: row;
   place-content: center;
@@ -31,9 +32,4 @@ img:hover{
     transform: translateY(-15px);
   }
 }
-
-.hide{
-    display: none;
-}
-
 

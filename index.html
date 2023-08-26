@@ -3,8 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/styles.css">
         <script src="https://kit.fontawesome.com/8bb9a1a97e.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/mq.css">
         <title>Meme Generator</title>
     </head>
 
@@ -13,20 +14,18 @@
             <h1 class="logo">Meme Generator</h1>
             <div class="nav-container">
                 <button class="btn-nav gallery-btn" >Gallery</button>
-                <button class="btn-nav about-btn">About</button>
             </div>
         </header>
 
-        <section class="gallery">
-            <h3>gallery section</h3>
+        <section class="gallery frame">
             <section class="gallery-container">
             </section>
         </section>
 
-        <section class="editor hide">
+        <section class="editor hide frame">
             <div class="editor-container">
                 <div class="canvas-container">
-                    <canvas width="400" height="400" onclick="onObjectSelection(event)"></canvas>
+                    <canvas width="300" height="300" onclick="onObjectSelection(event)"></canvas>
                 </div>
             </div>
                     

@@ -5,14 +5,13 @@
 @import url('setup/vars.css');
 
 /* BASICS  */
-@import url('basics/bace.css');
+@import url('basics/base.css');
+@import url('basics/helpers.css');
 @import url('basics/layout.css');
 
 /* COMPONENTS */
-/* @import url('components/body.css'); */
 @import url('components/header-nav.css');
-@import url('components/gallery.css');
 @import url('components/footer.css');
+@import url('components/gallery.css');
 @import url('components/meme.css');
 
-/* MEDIA QUERIES */
