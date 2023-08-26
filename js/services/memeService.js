@@ -2,7 +2,6 @@
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 let gCurrLineIdx = 0
-// const STORAGE_KEY = 'imgsDB'
 
 let gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
@@ -87,7 +86,7 @@ function updateFontSize(plusOrMinus) {
     updateLineMass(line)
 }
 
-function createLine(text = 'New Line', size = 20, color = 'white') {
+function createLine(text = 'New Line', size = 40, color = 'white') {
     const newLine = {
         txt: text,
         size: size,
@@ -103,18 +102,15 @@ function createLine(text = 'New Line', size = 20, color = 'white') {
     updateLineMass(newLine)
     gMeme.lines.push(newLine)
     gCurrLineIdx++
-    console.log('gCurrLineIdx', gCurrLineIdx)
     return gMeme.lines.length - 1
 }
 
 function calculateNewLineYPosition() {
     const meme = getMeme()
     let totalHeight = 0
-
     for (const line of meme.lines) {
         totalHeight += line.height
     }
-
     const spacing = 10
     return totalHeight + spacing
 }
@@ -129,7 +125,6 @@ function getEvPos(ev) {
         x: ev.offsetX,
         y: ev.offsetY,
     }
-
     if (TOUCH_EVS.includes(ev.type)) {
         ev.preventDefault()
         ev = ev.changedTouches[0]
@@ -141,8 +136,6 @@ function getEvPos(ev) {
     return pos
 }
 
-
-//FIXME: TO check if this function is needed
 function updateSelectedLineText(textContent) {
     if (gDragLineIdx !== -1) {
         gMeme.lines[gDragLineIdx].txt = textContent
@@ -158,7 +151,6 @@ function updateSelectedLine(plusOrMinus) {
     } else if (gCurrLineIdx >= gMeme.lines.length) {
         gCurrLineIdx = 0
     }
-
     gMeme.lines[prevLineIdx].isSelected = false
     gMeme.lines[gCurrLineIdx].isSelected = true
 }

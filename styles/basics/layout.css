@@ -1,6 +1,8 @@
 .main-layout {
     display: grid;
     grid-template-columns: var(--layout-padding) 1fr var(--layout-padding);
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
 }
 
 .main-layout > *:not(:nth-child(2)){

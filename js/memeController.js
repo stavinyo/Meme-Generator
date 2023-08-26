@@ -12,7 +12,6 @@ function onInit() {
     onInitGallery()
     eventListenersMemes()
     renderMeme()
-    // resizeCanvas()
 }
 
 function resizeCanvas() {
@@ -76,7 +75,6 @@ function renderText(idx) {
     gCtx.fillStyle = line.color
     gCtx.font = `${line.size}px Impact`
 
-    // FIXME: coor on the middle of the canvas
     gCtx.fillText(line.txt, line.xPos, line.yPos)
     gCtx.strokeText(line.txt, line.xPos, line.yPos)
 
@@ -97,9 +95,7 @@ function onResetCanvas() {
 
 function onUpdateText(ev) {
     const textContent = ev.target.value
-    console.log("ev", textContent)
     setUpdateText(textContent)
-    // updateSelectedLineText(textContent)
     renderMeme()
 }
 
@@ -123,7 +119,6 @@ function onUpdateFontSize(plusOrMinus) {
 
 function onAddLine() {
     gCurrLineIdx = createLine()
-
     gMeme.lines.forEach((line, idx) => {
         line.isSelected = idx === gCurrLineIdx
     })
@@ -132,7 +127,6 @@ function onAddLine() {
 }
 
 function onRemoveLine() {
-    console.log(gCurrLineIdx, "gCurrLineIdx")
     removeLine()
     renderMeme()
 }
@@ -145,19 +139,13 @@ function resetInputTub() {
 function onDown(ev) {
     const pos = getEvPos(ev)
     gDragLineIdx = isObjectClicked(pos)
-    console.log('gDragLineIdx', gDragLineIdx)
     gPrevPos = pos
-
-    console.log("gDragLineIdx", gDragLineIdx)
     gMeme.lines.forEach((line, idx) => {
         line.isSelected = idx === gDragLineIdx
     })
-
     if (gDragLineIdx !== -1) {
         _updateInputBarContent(gDragLineIdx)
-    } else {
-        turnOffRect()
-    }
+    } else turnOffRect()
     renderMeme()
 }
 
@@ -206,9 +194,7 @@ function _onChooseLine() {
     let meme = getMeme()
     const currTextContent = meme.lines[gDragLineIdx].txt
     const currFillColor = meme.lines[gDragLineIdx].color
-
     gCurrLineIdx = gDragLineIdx
-
     setUpdateText(currTextContent)
     updateFillColor(currFillColor)
 }
@@ -245,7 +231,6 @@ function drawRect(xPos, xWidth, yPos, yHeight) {
     gCtx.stroke()
 }
 
-//FIXME:
 function onObjectSelection(ev) {
     const { offsetX, offsetY } = ev
     console.log('offsetX', offsetX)

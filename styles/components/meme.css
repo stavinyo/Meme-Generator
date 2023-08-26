@@ -4,6 +4,7 @@
     flex-direction: column;
 }
 
+
 .editor .canvas-container{
     display: flex;
     justify-content: center;
@@ -15,6 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-block: auto;
 }
 
 .editor-btns >*{
@@ -41,12 +43,18 @@
     width: 50px;
 }
 
-
 .editor-btns .text-input{
     width: 300px;
+    background-color: rgba(172, 233, 235, 0.432);
 }
 .editor-btns .btn:hover{
     background-color: aliceblue;
+}
+.editor-btns .first-btns{
+    border: 1px solid rgba(56, 54, 54, 0.466);
+    border-radius: 3px;
+    width: min-content;
+    padding: 10px;
 }
 .editor-btns .second-btns{
     border: 1px solid rgba(56, 54, 54, 0.466);
@@ -56,8 +64,35 @@
 }
 .editor-btns .reset-btn{
     width: min-content;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.editor-btns .delete-line-input{
+    background-color: rgb(222, 97, 97);
+}
+
+.editor-btns .add-line-input{
+    background-color: rgb(119, 196, 100);
+}
+
+.editor-btns .input-fill-color{
+    background-image: linear-gradient(red, yellow, green);
+}
+
+.editor-btns .third-btns>*{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4267B2;
+    color: aliceblue;
+    text-decoration: none;
+}
+.editor-btns .third-btns>*:hover{
+    color: black;
+}
 .hide{
     display: none;
 }

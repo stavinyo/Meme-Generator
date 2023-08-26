@@ -1,8 +1,6 @@
 'use strict'
 
-
 function onInitGallery() {
-
     renderGallery()
     addEventListenersGallery()
 }
@@ -30,9 +28,6 @@ function onSelectedImage(ev) {
     const dataIdx = ev.target.getAttribute('data-idx')
     gMeme.selectedImgId = dataIdx
     renderMeme()
-
-    console.log(ev.target)
-
     document.querySelector(".gallery").classList.add('hide')
     document.querySelector(".editor").classList.remove('hide')
 }

@@ -7,13 +7,14 @@
 }
 
 .main-footer small{
-    font-size: 16px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     margin: 0;
 }
 
 .main-footer .social-links{
+    font-size: 20px;
     list-style: none;
     display: flex;
     justify-content: center;
