@@ -41,6 +41,7 @@
     width: 50px;
 }
 
+
 .editor-btns .text-input{
     width: 300px;
 }
@@ -52,6 +53,9 @@
     border-radius: 3px;
     width: min-content;
     padding: 10px;
+}
+.editor-btns .reset-btn{
+    width: min-content;
 }
 
 .hide{
