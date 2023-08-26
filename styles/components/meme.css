@@ -38,6 +38,11 @@
 .editor-btns .btn:not(:last-child){
     margin-inline-end: 10px;
 }
+.editor-btns .btn > i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .editor-btns .btn:not(.text-input){
     width: 50px;
