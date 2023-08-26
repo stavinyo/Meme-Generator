@@ -1,10 +1,10 @@
 'use strict'
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
-var gCurrLineIdx = 0
+let gCurrLineIdx = 0
 // const STORAGE_KEY = 'imgsDB'
 
-var gImgs = [
+let gImgs = [
     { id: 1, url: 'images/1.jpg', keywords: ['funny', 'cat'] },
     { id: 2, url: 'images/2.jpg', keywords: ['funny', 'cat'] },
     { id: 3, url: 'images/3.jpg', keywords: ['funny', 'cat'] },
@@ -25,7 +25,7 @@ var gImgs = [
     { id: 18, url: 'images/18.jpg', keywords: ['funny', 'cat'] },
 ]
 
-var gMeme = {
+let gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
@@ -43,7 +43,7 @@ var gMeme = {
     ]
 }
 
-var gKeywordSearchCountMap = {
+let gKeywordSearchCountMap = {
     'funny': 12,
     'cat': 16,
     'baby': 2
@@ -70,24 +70,24 @@ function getSelectedMeme() {
 }
 
 function setUpdateText(text) {
+    if (gMeme.lines.length <= 0) return
     gMeme.lines[gCurrLineIdx].txt = text
     updateLineMass(gMeme.lines[gCurrLineIdx])
 }
 
 function updateFillColor(fillColor) {
+    if (gMeme.lines.length <= 0) return
     gMeme.lines[gCurrLineIdx].color = fillColor
 }
 
 function updateFontSize(plusOrMinus) {
     const line = gMeme.lines[gCurrLineIdx]
+    if (!line) return
     line.size += plusOrMinus * 2
     updateLineMass(line)
 }
 
 function createLine(text = 'New Line', size = 20, color = 'white') {
-    // const lastLine = gMeme.lines[gMeme.lines.length - 1]
-
-    // if (!lastLine || lastLine.txt.trim() !== '') {
     const newLine = {
         txt: text,
         size: size,
@@ -105,7 +105,6 @@ function createLine(text = 'New Line', size = 20, color = 'white') {
     gCurrLineIdx++
     console.log('gCurrLineIdx', gCurrLineIdx)
     return gMeme.lines.length - 1
-    // }
 }
 
 function calculateNewLineYPosition() {
@@ -124,10 +123,6 @@ function getCurrLineIdx() {
     return gCurrLineIdx
 }
 
-// function getIsGrab() {
-//     const meme = getMeme()
-//     return meme.isGrab
-// }
 
 function getEvPos(ev) {
     let pos = {
@@ -167,3 +162,19 @@ function updateSelectedLine(plusOrMinus) {
     gMeme.lines[prevLineIdx].isSelected = false
     gMeme.lines[gCurrLineIdx].isSelected = true
 }
+
+function removeLine() {
+    gMeme.lines.splice(gCurrLineIdx, 1)
+}
+
+function resetCanvas() {
+    const currImg = getMeme().selectedImgId
+    gMeme = {
+        selectedImgId: currImg,
+        selectedLineIdx: -1,
+        lines: [],
+    }
+}
+
+
+

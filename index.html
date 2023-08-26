@@ -12,7 +12,7 @@
         <header class="header-nav">
             <h1 class="logo">Meme Generator</h1>
             <div class="nav-container">
-                <button class="btn-nav gallery-btn">Gallery</button>
+                <button class="btn-nav gallery-btn" >Gallery</button>
                 <button class="btn-nav about-btn">About</button>
             </div>
         </header>
@@ -38,7 +38,13 @@
                 <div class="first-btns">
                     <button class="btn next-line-input" onclick="onUpdateSelectedLine(1)">🡱</button>
                     <button class="btn prev-line-input" onclick="onUpdateSelectedLine(-1)">🡳</button>
-                    <button class="btn add-line-input" >+</button>
+                    <button class="btn add-line-input" >
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button class="btn decrease-input" onclick="onRemoveLine()">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                    <button class="btn reset-btn" onclick="onResetCanvas()">Reset</button>
                 </div>
  
                 <div class="second-btns">
@@ -47,13 +53,19 @@
                     <input type="color" class="btn input-fill-color" value="#ffffff" />
                 </div>                
 
-                <div class=".stickers-btns">
-
-                </div>
+                <!-- <div class="stickers-btns">
+                    <button class="btn stk1-input" onclick="onAddSticker('😁')">😁</button>
+                    <button class="btn stk2-input" onclick="onAddSticker('👽')">👽</button>
+                    <button class="btn stk3-input" onclick="onAddSticker('👑')">👑</button>  
+                </div> -->
 
                 <div class="third-btns">
-                    <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg"><i class="fa-solid fa-download"></i></a>
-                    <a href="#" class="btn" onclick="onUploadCanvasToFacebook()">f</a>
+                    <a href="#" class="btn" onclick="downloadMeme(this)" download="my-img.jpg">
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                    <a href="#" class="btn" onclick="onUploadCanvasToFacebook()">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    </a>
                 </div>
             </div>
         </section>

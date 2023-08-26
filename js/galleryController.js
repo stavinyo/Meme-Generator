@@ -27,7 +27,6 @@ function addEventListenersGallery() {
 }
 
 function onSelectedImage(ev) {
-    // onClearCanvas()
     const dataIdx = ev.target.getAttribute('data-idx')
     gMeme.selectedImgId = dataIdx
     renderMeme()

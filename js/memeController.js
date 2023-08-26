@@ -1,8 +1,8 @@
 'use strict'
 
-var gElCanvas
-var gCtx
-var gPrevPos
+let gElCanvas
+let gCtx
+let gPrevPos
 let gDragLineIdx = -1
 
 function onInit() {
@@ -23,6 +23,9 @@ function eventListenersMemes() {
 
     const addLine = document.querySelector(".add-line-input")
     addLine.addEventListener("click", onAddLine)
+
+    const galleryBtn = document.querySelector(".gallery-btn")
+    galleryBtn.addEventListener("click", onGalleryPage)
 
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
@@ -75,6 +78,16 @@ function renderText(idx) {
     }
 }
 
+function onGalleryPage() {
+    document.querySelector(".editor").classList.add('hide')
+    document.querySelector(".gallery").classList.remove('hide')
+}
+
+function onResetCanvas() {
+    resetCanvas()
+    renderMeme()
+}
+
 function onUpdateText(ev) {
     const textContent = ev.target.value
     console.log("ev", textContent)
@@ -107,8 +120,13 @@ function onAddLine() {
     gMeme.lines.forEach((line, idx) => {
         line.isSelected = idx === gCurrLineIdx
     })
-
     resetInputTub()
+    renderMeme()
+}
+
+function onRemoveLine() {
+    console.log(gCurrLineIdx, "gCurrLineIdx")
+    removeLine()
     renderMeme()
 }
 
@@ -270,5 +288,4 @@ function turnOffRact() {
         line.isSelected = false
     })
 }
-
 
