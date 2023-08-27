@@ -25,6 +25,8 @@
 }
 
 .editor-btns .btn{
+    color: black;
+    border-color: black;
     background: none ;
     border: 1px solid;
     border-radius: 3px;

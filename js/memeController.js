@@ -149,7 +149,6 @@ function onDown(ev) {
     renderMeme()
 }
 
-
 function onMove(ev) {
     if (gDragLineIdx !== -1) {
         const pos = getEvPos(ev)
