@@ -11,6 +11,10 @@
     margin: 10px;
 }
 
+.editor .canvas-container canvas {
+    border-radius: 3px;
+}
+
 .editor .editor-btns{
     display: flex;
     flex-direction: column;
