@@ -5,11 +5,14 @@
 
 html {
     line-height: 1.714285;
+     overflow-x: hidden;
+     max-width: 100%;
 }
 
 body {
     font-size: 16px;
     margin: 0;
+    overflow-x: hidden;
 }
 
 img {

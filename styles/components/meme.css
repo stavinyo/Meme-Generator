@@ -124,7 +124,7 @@
 }
 .editor-btns .third-btns [type="file"] {
   height: 0;
-  overflow:hidden;
+  /* overflow:hidden; */
   width: 0;
 }
 
