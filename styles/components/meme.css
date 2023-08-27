@@ -12,14 +12,15 @@
 }
 
 .editor .canvas-container canvas {
-    border-radius: 3px;
+    border-radius: var(--borderRadiusSize);
+    border: 1px solid var(--clrBtnsBorder);
 }
 
 .editor .editor-btns{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-block: auto;
+    height: min-content;
 }
 
 .editor-btns >*{
@@ -31,7 +32,7 @@
 .editor-btns .btn{
     background: none ;
     border: 1px solid var(--clrBtnsInside);
-    border-radius: 3px;
+    border-radius: var(--borderRadiusSize);
     cursor: pointer;
     transition: background-color 0.3s;
     height: 50px;
@@ -48,29 +49,28 @@
     align-items: center;
 }
 
-.editor-btns .btn:not(.text-input){
+.editor-btns .btn:not(.text-input, .btn-font){
     width: 50px;
 }
 
 .editor-btns .text-input{
     width: 300px;
-    background-color: rgba(172, 233, 235, 0.432);
 }
 
 .editor-btns .btn:hover{
-    background-color: aliceblue;
+    background-color: var(--clrTxtBox);
 }
 
 .editor-btns .first-btns{
     border: 1px solid var(--clrBtnsBorder);
-    border-radius: 3px;
+    border-radius: var(--borderRadiusSize);
     width: min-content;
     padding: 10px;
 }
 
 .editor-btns .second-btns{
     border: 1px solid var(--clrBtnsBorder);
-    border-radius: 3px;
+    border-radius: var(--borderRadiusSize);
     width: min-content;
     padding: 10px;
 }
@@ -107,6 +107,9 @@
     background-color: #4267B2;
     color: aliceblue;
     text-decoration: none;
+}
+.editor-btns .btn-font{
+    width:90px;
 }
 
 .editor-btns .third-btns .btn{

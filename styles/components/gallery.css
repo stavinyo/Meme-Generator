@@ -4,32 +4,22 @@
 }
 
 .gallery-container{  
-  margin-block: 30px;
   display: grid;
   grid-auto-flow: row;
   place-content: center;
-  grid-template-columns: repeat(auto-fit, 150px);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 15px;
 } 
 
 img{
   width:100%;
   break-inside: avoid;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
+  transition: 0.4s;
 }
 
 img:hover{
-  animation: imgMove 0.4s alternate 2;
-}
-
-@keyframes imgMove {
-    from {
-    transform: translateY(0px);
-  }
-
-  to {
-    transform: translateY(-15px);
-  }
+  opacity: 0.4;
 }
 

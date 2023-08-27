@@ -27,11 +27,9 @@ function addEventListenersGallery() {
 function onSelectedImage(ev) {
     const dataIdx = ev.target.getAttribute('data-idx')
     gMeme.selectedImgId = dataIdx
-    setTimeout(() => {
+    renderMeme()
+    document.querySelector(".gallery").classList.add('hide')
+    document.querySelector(".editor").classList.remove('hide')
 
-        renderMeme()
-        document.querySelector(".gallery").classList.add('hide')
-        document.querySelector(".editor").classList.remove('hide')
-    }, 800);
 }
 

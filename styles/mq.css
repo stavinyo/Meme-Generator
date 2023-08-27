@@ -2,12 +2,24 @@
     .editor .canvas-container canvas {
         width: 300px;
         height: 300px;
-
     }
 }
 
 /* Tablet*/
-@media (min-width: 791px) {
+@media (min-width: 820px) {
+:root{
+    --layout-padding: 50px;
+}
+
+    .main-layout {
+        grid-template-columns: 1fr 790px 1fr;
+    }
+
+    .frame-btn{
+        border: 1px solid rgba(56, 54, 54, 0.466) ;
+        border-radius: var(--borderRadiusSize);
+        padding: 10px;
+    }
 
     .editor{
         flex-direction: row;
@@ -18,9 +30,10 @@
     .editor .canvas-container {
     margin: 0 10px;
     }
+
     .editor .canvas-container canvas{
-        width: 450px;
-        height: 450px;
+        width: 400px;
+        height: 400px;
     }
     
     .hide{
@@ -30,8 +43,19 @@
 
 /* Desktop*/
 @media only screen and (min-width: 1025px) {
+
+    .main-layout {
+        grid-template-columns: 1fr minmax(1025px, 50vw) 1fr;
+    }
+
     .editor .canvas-container canvas{
         width: 500px;
         height: 500px;
     }
+
+    .frame-btn{
+    border: 1px solid rgba(56, 54, 54, 0.466) ;
+    border-radius: var(--borderRadiusSize);
+    padding: 30px;
+}
 }

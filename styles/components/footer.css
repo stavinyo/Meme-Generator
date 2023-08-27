@@ -2,7 +2,6 @@
     justify-items: center;
     height: 100px;
     padding: 10px;
-    border-radius: 3px;
     background: var(--clrMainBg);
 }
 

@@ -4,6 +4,7 @@ let gElCanvas
 let gCtx
 let gPrevPos
 let gDragLineIdx = -1
+let gFont = 'Impact'
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -24,14 +25,14 @@ function eventListenersMemes() {
     const input = document.querySelector(".text-input")
     input.addEventListener("input", onUpdateText)
 
-    const fillColor = document.querySelector(".input-fill-color")
-    fillColor.addEventListener("change", onUpdateFillColor)
-
     const addLine = document.querySelector(".add-line-input")
     addLine.addEventListener("click", onAddLine)
 
     const galleryBtn = document.querySelector(".gallery-btn")
     galleryBtn.addEventListener("click", onGalleryPage)
+
+    const logoBtn = document.querySelector(".logo")
+    logoBtn.addEventListener("click", onGalleryPage)
 
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
@@ -73,7 +74,7 @@ function renderText(idx) {
     gCtx.textBaseline = 'middle'
 
     gCtx.fillStyle = line.color
-    gCtx.font = `${line.size}px Impact`
+    gCtx.font = `${line.size}px ${gFont}`
 
     gCtx.fillText(line.txt, line.xPos, line.yPos)
     gCtx.strokeText(line.txt, line.xPos, line.yPos)
@@ -280,3 +281,7 @@ function turnOffRect() {
     })
 }
 
+function onChangeFontCanvas(font) {
+    gFont = font
+    renderMeme()
+}

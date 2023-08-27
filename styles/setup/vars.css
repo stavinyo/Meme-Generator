@@ -8,5 +8,10 @@
     --clrBtnsInside: rgb(45, 44, 44);
     --clrBodyBg: #F1F0E8;
 
+    --clrTxtBox: hsla(27, 9%, 81%, 0.502);
+    
     --layout-padding: 25px;
+
+    --borderRadiusSize: 10px;
 }
+

@@ -14,9 +14,11 @@
 
     <body class="main-layout" onload="onInit()">
         <header class="header-nav">
-            <h1 class="logo">Meme Generator</h1>
-            <div class="nav-container">
-                <button class="btn-nav gallery-btn" >Gallery</button>
+            <div class="header-container">
+                <h1 class="logo">Meme Generator</h1>
+                <div class="nav-container">
+                    <button class="btn-nav gallery-btn" >Gallery</button>
+                </div>
             </div>
         </header>
 
@@ -32,17 +34,20 @@
                 </div>
             </div>
                     
-            <div class="editor-btns">
+            <div class="editor-btns frame-btn">
                 <div class="text-btn">
                     <input class="btn text-input" placeholder="Type here" size="60" />
                 </div>
  
                 <div class="first-btns">
+                    <select onchange="onChangeFontCanvas(this.value)" class="btn btn-font">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Gill Sans">Gill Sans</option>
+                        <option value="cursive">cursive</option>
+                    </select>
                     <button class="btn next-line-input" onclick="onUpdateSelectedLine(1)">
-                    <i class="fa-solid fa-arrow-up fa-xl"></i>
-                </button>
-                    <button class="btn prev-line-input" onclick="onUpdateSelectedLine(-1)">
-                    <i class="fa-solid fa-arrow-down fa-xl"></i>
+                    <i class="fa-solid fa-angles-right fa-xl"></i>
                 </button>
                     <button class="btn add-line-input" >
                         <i class="fa-solid fa-plus fa-xl"></i>
@@ -54,7 +59,8 @@
                     <button class="btn increase-input" onclick="onUpdateFontSize(1)">A+</button>
                     <button class="btn decrease-input" onclick="onUpdateFontSize(-1)">A-</button>
 
-                    <input type="color" class="btn input-fill-color" value="#ffffff" />
+                    <!-- <label for="btnClr"><i class="fa-solid fa-palette fa-2xl"></i></label> -->
+                    <input type="color" class="btn input-fill-color" id="btnClr" oninput="onUpdateFillColor(event)" value="#ffffff" />
                     <button class="btn delete-line-input" onclick="onRemoveLine()">
                         <i class="fa-regular fa-trash-can fa-xl"></i>
                     </button>
@@ -74,9 +80,9 @@
         <footer class="main-footer">
             <small>all rights reserved for Stav Cohen 2023</small>
             <ul class="social-links">
-                <li class="linkedIn"><a href="https://www.linkedin.com/in/stavco">LinkedIn</a></li>
-                <li class="mail"><a href="mailto:Stavco28@gmail.com">eMail</a></li>
-                <li class="whatsapp"><a href="https://wa.link/febhtw">WhatsApp</a></li>
+                <li class="linkedIn"><a href="https://www.linkedin.com/in/stavco"><i class="fa-brands fa-linkedin fa-xl"></i></a></li>
+                <li class="mail"><a href="mailto:Stavco28@gmail.com"><i class="fa-solid fa-square-envelope fa-xl"></i></a></li>
+                <li class="whatsapp"><a href="https://wa.link/febhtw"><i class="fa-brands fa-square-whatsapp fa-xl"></i></a></li>
             </ul>
         </footer
 
