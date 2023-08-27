@@ -10,7 +10,6 @@
 }
 
 .header-nav .logo {
-    font-family: bubble;
     font-size: 2.14285714em;
     letter-spacing: 0;
     margin-inline: 20px;
@@ -30,7 +29,7 @@
     color: var(--clrNavFont);
     background-color: transparent;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     transition: 0.8s;
     cursor: pointer;
     padding: 0;

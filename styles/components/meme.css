@@ -4,7 +4,6 @@
     flex-direction: column;
 }
 
-
 .editor .canvas-container{
     display: flex;
     justify-content: center;
