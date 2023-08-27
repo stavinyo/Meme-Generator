@@ -99,6 +99,17 @@
     background-color: #4267B2;
     color: aliceblue;
     text-decoration: none;
+
+}
+
+.editor-btns .third-btns .btn{
+    width: max-content;
+    padding: 10px;
+}
+
+.editor-btns .third-btns i{
+    width: max-content;
+    margin-inline-start: 10px;
 }
 .editor-btns .third-btns>*:hover{
     color: black;
