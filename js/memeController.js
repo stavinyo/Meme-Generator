@@ -285,3 +285,8 @@ function onChangeFontCanvas(font) {
     gFont = font
     renderMeme()
 }
+
+function uploadImg(img) {
+    console.log('img', img)
+    renderImgAndText(img)
+}

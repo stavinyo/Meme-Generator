@@ -104,10 +104,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #4267B2;
+    background-color: var(--clrBtnsInside);
     color: aliceblue;
     text-decoration: none;
 }
+
+.editor-btns .third-btns [type="file"] + label {
+    border: 1px solid var(--clrBtnsBorder);
+    border-radius: var(--borderRadiusSize);
+    width: min-content;
+    padding: 10px;
+    cursor: pointer;
+}
+.editor-btns .third-btns [type="file"] {
+  height: 0;
+  overflow:hidden;
+  width: 0;
+}
+
 .editor-btns .btn-font{
     width:90px;
 }
@@ -115,11 +129,6 @@
 .editor-btns .third-btns .btn{
     width: max-content;
     padding: 10px;
-}
-
-.editor-btns .third-btns i{
-    width: max-content;
-    margin-inline-start: 10px;
 }
 
 .editor-btns .third-btns>*:hover{

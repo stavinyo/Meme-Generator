@@ -45,7 +45,7 @@
 @media only screen and (min-width: 1025px) {
 
     .main-layout {
-        grid-template-columns: 1fr minmax(1025px, 50vw) 1fr;
+        grid-template-columns: 1fr minmax(1025px, 75vw) 1fr;
     }
 
     .editor .canvas-container canvas{
