@@ -25,15 +25,14 @@
 }
 
 .editor-btns .btn{
-    color: black;
-    border-color: black;
     background: none ;
-    border: 1px solid;
+    border: 1px solid var(--clrBtnsInside);
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s;
     height: 50px;
     font-size: 1.3rem;
+    color: var(--clrBtnsInside);
 }
 
 .editor-btns .btn:not(:last-child){
@@ -57,13 +56,14 @@
     background-color: aliceblue;
 }
 .editor-btns .first-btns{
-    border: 1px solid rgba(56, 54, 54, 0.466);
+    border: 1px solid var(--clrBtnsBorder);
     border-radius: 3px;
     width: min-content;
     padding: 10px;
 }
+
 .editor-btns .second-btns{
-    border: 1px solid rgba(56, 54, 54, 0.466);
+    border: 1px solid var(--clrBtnsBorder);
     border-radius: 3px;
     width: min-content;
     padding: 10px;

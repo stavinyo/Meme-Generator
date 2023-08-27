@@ -4,7 +4,8 @@
     --clrMainBg: #FFA559;
     --clrNavFont: #32312f;
     --clrNavFontHover: #F1F0E8;
-
+    --clrBtnsBorder: rgba(56, 54, 54, 0.466);
+    --clrBtnsInside: rgb(45, 44, 44);
     --clrBodyBg: #F1F0E8;
 
     --layout-padding: 25px;
