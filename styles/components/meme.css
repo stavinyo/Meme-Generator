@@ -89,7 +89,7 @@
 }
 
 .editor-btns .input-fill-color{
-    background-image: linear-gradient(red, yellow, green);
+    background-image: linear-gradient(#ED7B7B, #F0B86E);
 }
 
 .editor-btns .third-btns>*{
