@@ -65,6 +65,7 @@ function getImageById(id) {
 function getSelectedMeme() {
     const meme = getMeme()
     const img = getImageById(meme.selectedImgId)
+    console.log('img,', img)
     return img
 }
 
