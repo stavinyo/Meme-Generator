@@ -15,6 +15,11 @@
         border: 1px solid rgba(56, 54, 54, 0.466);
         box-shadow: 0 0 3em 0.1em rgba(56, 54, 54, 0.123);
         border-radius: var(--borderRadiusSize);
+        padding-block: 15px;
+    }
+
+    .hide{
+    display: none;
 }
 }
 
